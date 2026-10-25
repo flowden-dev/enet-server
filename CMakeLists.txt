@@ -1,0 +1,73 @@
+cmake_minimum_required(VERSION 3.24)
+project(enet_server VERSION 0.1.0 LANGUAGES C CXX)
+
+option(ENET_SERVER_WITH_LZ4 "Build the optional packet compression module" OFF)
+option(ENET_SERVER_BUILD_EXAMPLES "Build the server and client examples" ON)
+
+find_package(Threads REQUIRED)
+add_subdirectory(third_party/enet)
+
+add_library(enet_server STATIC
+    src/network/Connection.cpp
+    src/network/Server.cpp
+    src/network/ServerManager.cpp
+    src/config/ConfigFile.cpp
+    src/config/ServerConfig.cpp
+)
+add_library(enet_server::enet_server ALIAS enet_server)
+target_include_directories(enet_server PUBLIC include)
+target_compile_features(enet_server PUBLIC cxx_std_20)
+target_link_libraries(enet_server PUBLIC enet Threads::Threads)
+target_compile_definitions(enet_server PUBLIC NOMINMAX WIN32_LEAN_AND_MEAN)
+
+if(MSVC)
+    target_compile_options(enet_server PRIVATE /W4 /permissive- /EHsc)
+else()
+    target_compile_options(enet_server PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+if(ENET_SERVER_WITH_LZ4)
+    add_library(enet_server_lz4 STATIC third_party/lz4/lz4.c)
+    target_include_directories(enet_server_lz4 PUBLIC third_party/lz4)
+    target_sources(enet_server PRIVATE src/network/PacketCompression.cpp)
+    target_link_libraries(enet_server PUBLIC enet_server_lz4)
+    target_compile_definitions(enet_server PUBLIC ENET_SERVER_WITH_LZ4=1)
+endif()
+
+if(ENET_SERVER_BUILD_EXAMPLES)
+    add_executable(echo_server examples/echo_server.cpp)
+    target_link_libraries(echo_server PRIVATE enet_server)
+    add_executable(echo_client examples/echo_client.cpp)
+    target_link_libraries(echo_client PRIVATE enet)
+    target_compile_features(echo_client PRIVATE cxx_std_20)
+endif()
+
+include(CTest)
+if(BUILD_TESTING)
+    add_executable(core_tests tests/core_tests.cpp)
+    target_link_libraries(core_tests PRIVATE enet_server)
+    add_test(NAME core_tests COMMAND core_tests)
+    add_executable(network_tests tests/network_tests.cpp)
+    target_link_libraries(network_tests PRIVATE enet_server)
+    add_test(NAME network_tests COMMAND network_tests)
+    set_tests_properties(network_tests PROPERTIES TIMEOUT 15)
+    add_executable(fragment_tests tests/fragment_tests.cpp)
+    target_link_libraries(fragment_tests PRIVATE enet_server)
+    add_test(NAME fragment_tests COMMAND fragment_tests)
+    set_tests_properties(fragment_tests PROPERTIES TIMEOUT 15)
+    add_executable(buffer_alias_tests tests/buffer_alias_tests.cpp)
+    target_link_libraries(buffer_alias_tests PRIVATE enet_server)
+    add_test(NAME buffer_alias_tests COMMAND buffer_alias_tests)
+    add_executable(lifecycle_tests tests/lifecycle_tests.cpp)
+    target_link_libraries(lifecycle_tests PRIVATE enet_server)
+    foreach(mode cleanup cleanup-active cleanup-async delayed graceful send-close immediate)
+        add_test(NAME lifecycle_${mode} COMMAND lifecycle_tests ${mode})
+        set_tests_properties(lifecycle_${mode} PROPERTIES TIMEOUT 15)
+    endforeach()
+    foreach(test send_limit_tests config_io_tests log_macro_tests)
+        add_executable(${test} tests/${test}.cpp)
+        target_link_libraries(${test} PRIVATE enet_server)
+        add_test(NAME ${test} COMMAND ${test})
+        set_tests_properties(${test} PROPERTIES TIMEOUT 15)
+    endforeach()
+endif()

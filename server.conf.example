@@ -1,0 +1,19 @@
+# enet-server configuration
+# copy to server.conf or let the example generate it on first start
+bind_address=127.0.0.1
+port=7777
+max_connections=128
+logic_workers=2
+realtime_workers=1
+background_workers=1
+io_timeout_min_ms=1
+io_timeout_max_ms=8
+max_rate_packets=1000
+rate_window_seconds=10
+max_packet_queue=10000
+max_connection_queue=128
+max_connection_send_queue=128
+max_connection_burst=16
+max_events_per_turn=32
+max_io_commands_per_turn=64
+io_weight=1

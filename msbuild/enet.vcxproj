@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-LZ4|x64"><Configuration>Debug-LZ4</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release-LZ4|x64"><Configuration>Release-LZ4</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3B80686B-A8E2-5552-B033-773BF8BC892B}</ProjectGuid>
+    <RootNamespace>enet</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-LZ4|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-LZ4|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-LZ4|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-LZ4|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemGroup>
+    <ClCompile Include="..\third_party\enet\callbacks.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\compress.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\host.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\list.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\packet.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\peer.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\protocol.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\third_party\enet\win32.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\third_party\enet\include\enet\callbacks.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\enet.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\list.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\protocol.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\time.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\types.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\unix.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\utility.h" />
+    <ClInclude Include="..\third_party\enet\include\enet\win32.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

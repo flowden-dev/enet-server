@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include\enet_server\config"><UniqueIdentifier>{85FE0805-127A-5402-BCD7-52A3FCFCC64C}</UniqueIdentifier></Filter>
+    <Filter Include="include\enet_server\logging"><UniqueIdentifier>{C93EA7C4-0698-51AE-B2CC-1F6D3FA2896B}</UniqueIdentifier></Filter>
+    <Filter Include="include\enet_server\network"><UniqueIdentifier>{ECAE7988-B5FA-5640-99B8-289D1E28ABFD}</UniqueIdentifier></Filter>
+    <Filter Include="include\enet_server\protocol"><UniqueIdentifier>{61977B57-0A6C-5087-81D0-F67581FBFA43}</UniqueIdentifier></Filter>
+    <Filter Include="include\enet_server\util"><UniqueIdentifier>{C14DF432-54CF-5A0B-A400-9172E882F10E}</UniqueIdentifier></Filter>
+    <Filter Include="src\config"><UniqueIdentifier>{DA307158-CE5C-548A-AB95-1725128A1E1D}</UniqueIdentifier></Filter>
+    <Filter Include="src\network"><UniqueIdentifier>{854FA357-4DFA-53C1-BC4F-6EB26D96515B}</UniqueIdentifier></Filter>
+    <Filter Include="third_party\lz4"><UniqueIdentifier>{4D63B6BF-543D-5D2B-AFE6-D18F04C89811}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\config\ConfigFile.cpp"><Filter>src\config</Filter></ClCompile>
+    <ClCompile Include="..\src\config\ServerConfig.cpp"><Filter>src\config</Filter></ClCompile>
+    <ClCompile Include="..\src\network\Connection.cpp"><Filter>src\network</Filter></ClCompile>
+    <ClCompile Include="..\src\network\PacketCompression.cpp"><Filter>src\network</Filter></ClCompile>
+    <ClCompile Include="..\src\network\Server.cpp"><Filter>src\network</Filter></ClCompile>
+    <ClCompile Include="..\src\network\ServerManager.cpp"><Filter>src\network</Filter></ClCompile>
+    <ClCompile Include="..\third_party\lz4\lz4.c"><Filter>third_party\lz4</Filter></ClCompile>
+    <ClInclude Include="..\include\enet_server\config\ConfigFile.hpp"><Filter>include\enet_server\config</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\config\ServerConfig.hpp"><Filter>include\enet_server\config</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\logging\Log.hpp"><Filter>include\enet_server\logging</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\Connection.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\ConnectionStore.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\HeaderReader.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\PacketBuffer.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\PacketCompression.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\PacketDispatcher.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\PacketSender.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\Server.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\ServerManager.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\network\TaskExecutor.hpp"><Filter>include\enet_server\network</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\protocol\IncomingPacket.hpp"><Filter>include\enet_server\protocol</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\protocol\Network.hpp"><Filter>include\enet_server\protocol</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\protocol\Packet.hpp"><Filter>include\enet_server\protocol</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\protocol\Scheduling.hpp"><Filter>include\enet_server\protocol</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\util\ByteReader.hpp"><Filter>include\enet_server\util</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\util\ByteWriter.hpp"><Filter>include\enet_server\util</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\util\ReturnEx.hpp"><Filter>include\enet_server\util</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\util\ScalarBuffer.hpp"><Filter>include\enet_server\util</Filter></ClInclude>
+    <ClInclude Include="..\include\enet_server\util\ScopeExit.hpp"><Filter>include\enet_server\util</Filter></ClInclude>
+    <ClInclude Include="..\third_party\lz4\lz4.h"><Filter>third_party\lz4</Filter></ClInclude>
+  </ItemGroup>
+</Project>

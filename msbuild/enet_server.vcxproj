@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-LZ4|x64"><Configuration>Debug-LZ4</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release-LZ4|x64"><Configuration>Release-LZ4</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{637F9D03-51EB-5F5A-9FAD-0442FEDAA735}</ProjectGuid>
+    <RootNamespace>enet_server</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-LZ4|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-LZ4|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-LZ4|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-LZ4|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="common.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemGroup>
+    <ClCompile Include="..\src\config\ConfigFile.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\config\ServerConfig.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\network\Connection.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\network\PacketCompression.cpp">
+      <ExcludedFromBuild Condition="'$(EnetServerWithLz4)'!='true'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\network\Server.cpp">
+    </ClCompile>
+    <ClCompile Include="..\src\network\ServerManager.cpp">
+    </ClCompile>
+    <ClCompile Include="..\third_party\lz4\lz4.c">
+      <ExcludedFromBuild Condition="'$(EnetServerWithLz4)'!='true'">true</ExcludedFromBuild>
+      <CompileAs>CompileAsC</CompileAs>
+      <LanguageStandard />
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <ExceptionHandling />
+      <ConformanceMode>false</ConformanceMode>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\enet_server\config\ConfigFile.hpp" />
+    <ClInclude Include="..\include\enet_server\config\ServerConfig.hpp" />
+    <ClInclude Include="..\include\enet_server\logging\Log.hpp" />
+    <ClInclude Include="..\include\enet_server\network\Connection.hpp" />
+    <ClInclude Include="..\include\enet_server\network\ConnectionStore.hpp" />
+    <ClInclude Include="..\include\enet_server\network\HeaderReader.hpp" />
+    <ClInclude Include="..\include\enet_server\network\PacketBuffer.hpp" />
+    <ClInclude Include="..\include\enet_server\network\PacketCompression.hpp" />
+    <ClInclude Include="..\include\enet_server\network\PacketDispatcher.hpp" />
+    <ClInclude Include="..\include\enet_server\network\PacketSender.hpp" />
+    <ClInclude Include="..\include\enet_server\network\Server.hpp" />
+    <ClInclude Include="..\include\enet_server\network\ServerManager.hpp" />
+    <ClInclude Include="..\include\enet_server\network\TaskExecutor.hpp" />
+    <ClInclude Include="..\include\enet_server\protocol\IncomingPacket.hpp" />
+    <ClInclude Include="..\include\enet_server\protocol\Network.hpp" />
+    <ClInclude Include="..\include\enet_server\protocol\Packet.hpp" />
+    <ClInclude Include="..\include\enet_server\protocol\Scheduling.hpp" />
+    <ClInclude Include="..\include\enet_server\util\ByteReader.hpp" />
+    <ClInclude Include="..\include\enet_server\util\ByteWriter.hpp" />
+    <ClInclude Include="..\include\enet_server\util\ReturnEx.hpp" />
+    <ClInclude Include="..\include\enet_server\util\ScalarBuffer.hpp" />
+    <ClInclude Include="..\include\enet_server\util\ScopeExit.hpp" />
+    <ClInclude Include="..\third_party\lz4\lz4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="enet.vcxproj">
+      <Project>{3B80686B-A8E2-5552-B033-773BF8BC892B}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

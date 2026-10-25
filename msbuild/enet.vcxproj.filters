@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="third_party\enet"><UniqueIdentifier>{40084139-2C66-5188-83C6-6E30F06E765D}</UniqueIdentifier></Filter>
+    <Filter Include="third_party\enet\include\enet"><UniqueIdentifier>{CB243404-7772-503C-B5B0-6FA0886DB9EE}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\third_party\enet\callbacks.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\compress.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\host.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\list.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\packet.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\peer.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\protocol.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClCompile Include="..\third_party\enet\win32.c"><Filter>third_party\enet</Filter></ClCompile>
+    <ClInclude Include="..\third_party\enet\include\enet\callbacks.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\enet.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\list.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\protocol.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\time.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\types.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\unix.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\utility.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+    <ClInclude Include="..\third_party\enet\include\enet\win32.h"><Filter>third_party\enet\include\enet</Filter></ClInclude>
+  </ItemGroup>
+</Project>

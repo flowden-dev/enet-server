@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="examples"><UniqueIdentifier>{FBD0405A-67CF-537C-A3DA-EC89D7206A27}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\examples\echo_client.cpp"><Filter>examples</Filter></ClCompile>
+  </ItemGroup>
+</Project>
